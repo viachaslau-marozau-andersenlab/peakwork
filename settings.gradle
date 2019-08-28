@@ -1,0 +1,8 @@
+rootProject.name = 'peakwork-challenge'
+
+include 'app-geo-service'
+include 'app-search-service'
+include 'app-update-service'
+include 'app-commons'
+
+

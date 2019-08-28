@@ -1,0 +1,10 @@
+indexes:
+  - kind: GeoCoordinateInfo
+    ancestor: no
+    properties:
+      - name: place_id
+        direction: desc
+      - name: country
+        direction: desc
+      - name: display_name
+        direction: desc

@@ -1,0 +1,8 @@
+pollingInterval: 300000
+
+nominatim:
+  url: https://nominatim.openstreetmap.org/
+
+logging:
+  level:
+    com.andersen.peakwork: debug

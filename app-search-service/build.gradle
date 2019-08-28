@@ -1,0 +1,16 @@
+dependencies {
+    implementation project(':app-commons')
+}
+
+apply plugin: 'org.springframework.boot'
+jar {
+    manifest {
+        attributes ('Implementation-Title': 'endpoint-service',
+                'Implementation-Version': archiveVersion,
+                'Main-Class': 'com.andersen.peakwork.challenge.Application'
+        )
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

@@ -1,0 +1,38 @@
+buildscript {
+    ext {
+        depManagementVersion = "1.0.5.RELEASE"
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath ("io.spring.gradle:dependency-management-plugin:${depManagementVersion}")
+    }
+}
+
+allprojects {
+    group 'com.andersen.peakwork'
+    version '1.0-SNAPSHOT'
+}
+
+subprojects {
+    repositories {
+        mavenCentral()
+    }
+
+    apply plugin: 'java'
+    apply plugin: 'eclipse'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.8'
+        annotationProcessor 'org.projectlombok:lombok:1.18.8'
+        implementation 'org.springframework.boot:spring-boot-starter-web:2.1.7.RELEASE'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test:2.1.7.RELEASE'
+    }
+}

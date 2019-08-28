@@ -1,0 +1,4 @@
+FROM openjdk:8
+COPY ./app-search-service/build/libs/app-search-service-1.0-SNAPSHOT.jar /app-search-service.jar
+EXPOSE 8080/tcp
+ENTRYPOINT ["java", "-jar", "/app-search-service.jar"]

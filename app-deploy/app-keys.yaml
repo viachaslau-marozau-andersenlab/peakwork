@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: app-creds
+type: Opaque
+data:
+  sa_json: ${enter.app.secret.key.here}

@@ -1,0 +1,4 @@
+FROM openjdk:8
+COPY ./app-update-service/build/libs/app-update-service-1.0-SNAPSHOT.jar /app-update-service.jar
+EXPOSE 8080/tcp
+ENTRYPOINT ["java", "-jar", "/app-update-service.jar"]

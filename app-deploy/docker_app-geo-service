@@ -1,0 +1,4 @@
+FROM openjdk:8
+COPY ./app-geo-service/build/libs/app-geo-service-1.0-SNAPSHOT.jar /app-geo-service.jar
+EXPOSE 8080/tcp
+ENTRYPOINT ["java", "-jar", "/app-geo-service.jar"]

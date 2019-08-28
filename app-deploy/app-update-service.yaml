@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-update-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-update-service
+  template:
+    metadata:
+      labels:
+        app: app-update-service
+    spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: app-creds
+            items:
+              - key: sa_json
+                path: sa_credentials.json
+      containers:
+        - name: app-update-service
+          image: gcr.io/${your.google.cloud.project}/app-update-service:v1
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: google-cloud-key
+              mountPath: /etc/gcp
+              readOnly: true
+          env:
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /etc/gcp/sa_credentials.json
